@@ -1,0 +1,4 @@
+====================== string ======================
+https://www.w3schools.com/python/python_ref_string.asp
+https://www.w3schools.com/python/python_strings_methods.asp
+https://www.w3schools.com/python/python_string_formatting.asp
