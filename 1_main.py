@@ -1,4 +1,8 @@
 
+
+
+# --------------------------------------
+
 x = 200
 print(isinstance(x, int))  #return a boolean
 # print(type(x)==int)
@@ -10,10 +14,23 @@ This is a comment
 written in
 more than just one line
 """
-# --------------------------------------
+# ----------------python/----------------------
 # >>> python --version
-# python hello.py 
-# !pip --version 
+# >>> python hello.py 
+ 
+
+
+
+# PIP is a package manager for Python packages, or modules if you like.
+# !pip --version
+# >>> pip install camelcase
+# >>> pip uninstall camelcase
+ #>>> pip list
+import camelcase
+c = camelcase.CamelCase()
+txt = "lorem ipsum dolor sit amet"
+print(c.hump(txt)) #Lorem Ipsum Dolor Sit Amet
+
 # --------------------------------------
 import sys
 print(sys.version)
@@ -21,7 +38,7 @@ print(sys.version)
 
 # import platform
 # x = platform.system()
-# x = dir(platform)
+# x = dir(platform) # list all the function names (or variable names) in a module
 # print(x) 
 
 # ------------------[Variables]--------------------
@@ -137,8 +154,8 @@ print(bool(myobj))
 
 
 
-# ------------------global--------------------
-
+# ------------------global / nonlocal --------------------
+# global
 def myfunc():
   global x
   x = "fantastic"
@@ -152,6 +169,23 @@ def myfunc():
   x = "fantastic"
 myfunc()
 print("Python is " + x) 
+
+# nonlocal 
+def myfunc():
+  x = 300
+  def myinnerfunc():
+    print(x)
+  myinnerfunc()
+myfunc() 
+
+def myfunc1():
+  x = "Jane"
+  def myfunc2():
+    nonlocal x
+    x = "hello"
+  myfunc2()
+  return x
+print(myfunc1()) 
 # -------------------random-------------------
 
 import random
@@ -347,7 +381,7 @@ for x in [0, 1, 2]:
 
 #--------------------- [public function] ---------------------
 
-# #dir(m) for show all premter and verible  import math as m 
+# #dir(m)  #list all the function names (or variable names) in a module                 import math as m 
 # sorted
 # list(reversed([1,23]))
 # del #delete
@@ -647,4 +681,21 @@ while y == True:
     print("Wrong input, please try again.")
 
 print("Thank you!") 
-# --------------------------------------
+# -------------------module-------------------
+import module1
+module1.greeting("Jonathan")
+a = module1.person1["age"]
+print(a) 
+# ***************
+import module1 as mx
+a = mx.person1["age"]
+print(a) 
+# ***************
+
+
+from folderx import module2 as x
+from folderx.module2 import person1
+x.greeting("Jonathan")
+print(x.person1["age"])
+a = person1["age"]
+print(a) 
